@@ -1,15 +1,52 @@
-function quickSort(arr) {
-  if(arr.length <= 1) return arr
-  const middleIndex = Math.floor(arr.length/2)
-  //防止当取到的中间值为数组最小值时造成死循环
-  const middleValue = arr.splice(middleIndex, 1)[0]
-  let left = []
-  let right = []
-  arr.forEach((value) => {
-    if(value >= middleValue) return right.push(value)
-    left.push(value)
-  })
-  return quickSort(left).concat(middleValue, quickSort(right))
+function quick(array, left, right) { let index; if (array.length > 1) {
+  index = partition(array, left, right);
+  if (left < index - 1) {
+    quick(array, left, index - 1);
+  }
+  if (index < right) {
+    quick(array, index, right);
+  }
+}
+return array;
 }
 
-console.log(quickSort([1,9,3,2,90,5,13]))
+function quickSort(array) {
+return quick(array, 0, array.length - 1);
+};
+
+// 划分操作函数
+function partition(array, left, right) {
+// 用index取中间值而非splice
+const pivot = array[Math.floor((right + left) / 2)];
+let i = left;
+let j = right;
+
+while (i <= j) {
+  while (compare(array[i], pivot) === -1) {
+    i++;
+  }
+  while (compare(array[j], pivot) === 1) {
+    j--;
+  }
+  if (i <= j) {
+    swap(array, i, j);
+    i++;
+    j--;
+  }
+}
+return i;
+}
+// 原地交换函数，而非用临时数组
+function swap(array, a, b) {
+[array[a], array[b]] = [array[b], array[a]];
+}
+
+// 比较函数
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+return a < b ? -1 : 1;
+}
+
+const a = quickSort([1234,1,5,19,5,2,9])
