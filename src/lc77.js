@@ -73,4 +73,4 @@ function helper(start, n, k, temp) {
     }
 }
 
-console.log(combine(1, 1));
+console.log(combine(4, 2));
