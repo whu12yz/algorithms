@@ -12,21 +12,30 @@
  * @return {string[]}
  */
 var restoreIpAddresses = function(s) {
-    for (let j = 0; j < 3; j++) {
-    }
+    const res = [];
+    deepSearch(res, s, [], 0);
+    return res;
 };
-function helper(s, start, end, j) {
-    if(isValid(s.substring(start, end + 1))){
-        helper(s, end, end + j);
-    }else {
-        helper(s, 0, j - 1, j - 1);
-    };
+function deepSearch(res, s, prefix, idx) {
+    if (prefix.length === 4 && idx === s.length) {
+        res.push(prefix.join('.'));
+        return
+    }
+    if (prefix.length > 4) {
+        return
+    }
+    for (let r = idx; r < s.length; r++) {
+        if (r !== idx && s[idx] === '0' ) return;
+        const num = parseInt(s.substring(idx, r + 1));
+        if(!isValid(num)) return;
+        prefix.push(num);
+        deepSearch(res, s, prefix, r + 1)
+        prefix.pop();
+    }
+
 }
 function isValid(s) {
-    if (s.length > 1 && s[0] == 0) {
-        return false;
-    } 
     const fmtS = parseInt(s, 10);
     return fmtS >= 0 && fmtS <= 255
 }
-console.log(restoreIpAddresses(25525511135));
+console.log(restoreIpAddresses('111111'));
