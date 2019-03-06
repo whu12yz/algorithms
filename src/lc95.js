@@ -34,5 +34,29 @@
  * @return {TreeNode[]}
  */
 var generateTrees = function(n) {
+    if (n <= 0) {
+        return new TreeNode(null);
+    }
+    return generateSubTree(1, n);
     
 };
+function generateSubTree(start, end) {
+    const res = [];
+    if (end < start) {
+        res.push(null);
+        return res;
+    } 
+    for (let i = start; i <= end; i++) {
+        let left = generateSubTree(start, i - 1);
+        let right = generateSubTree(i + 1, end);
+        for (let j = 0; j < left.length; j ++) {
+            for (let k = 0; k < right.length; k ++) {
+                root = new TreeNode(i);
+                root.left = left[j];
+                root.right = right[k]
+                res.push(root);
+            }
+        }
+    }
+    return res;
+}
