@@ -71,3 +71,24 @@ head.next.next.next = new ListNode(4);
 head.next.next.next.next = new ListNode(5);
 
 console.log(reverseBetween(head, 1, 5));
+
+var a = [1,3,4,5,7];
+var c = a.reduce((result, cur) => {
+    result[cur] = cur;
+    return result;
+}, {});
+console.log(c);
+a.map((item, index, array) => {
+
+})
+a.reduce((result, cur) => {
+
+}, initValue);
+
+Array.prototype.map = function(fn, thisArg) {
+    return this.reduce((result, cur, index, array) => {
+        thisArg && (fn = fn.bind(thisArg));
+        result.push(fn(cur, index, array));
+        return result;
+    }, []);
+}
