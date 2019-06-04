@@ -23,19 +23,17 @@ var pathSum = function(root, sum) {
     var res = [];
 
     var search = function(node) {
-        node && console.log(node.val);
+        if (!node) return null;
         res.push(node.val);
-        if (node && !node.left && !node.right) {
+        if (!node.left && !node.right) {
             var total = res.reduce((a, b) => a+b);
             if (total === sum) {
                 list.push(deepCopy(res));
             }
-            // res.pop();
-            return
         }
-        if (node && node.left) search(node.left);
+        if (node.left) search(node.left);
+        if (node.right) search(node.right);
         res.pop()
-        if (node && node.right) search(node.right);
     }
     search(root);
     return list;
