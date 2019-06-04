@@ -31,8 +31,8 @@ var pathSum = function(root, sum) {
                 list.push(deepCopy(res));
             }
         }
-        if (node.left) search(node.left);
-        if (node.right) search(node.right);
+        search(node.left);
+        search(node.right);
         res.pop()
     }
     search(root);
