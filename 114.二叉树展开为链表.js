@@ -15,6 +15,16 @@
  * @return {void} Do not return anything, modify root in-place instead.
  */
 var flatten = function(root) {
-    
+    if (!root) return;
+    if (root.left) {
+        var last = root.left;
+        while(last && last.right) last = last.right;
+
+        var tmp = root.right;
+        root.right = root.left;
+        last.right = tmp;
+        root.left = null;
+    }
+    flatten(root.right);
 };
 
