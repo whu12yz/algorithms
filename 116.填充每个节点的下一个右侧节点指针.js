@@ -17,14 +17,23 @@
  * @return {Node}
  */
 var connect = function(root) {
-    let queen = [];
-    var search = function(node) {
-        const task = queen.shift();
-        // queen.push(node);
-        if (node.left) queen.push(node.left);
-        if (node.right) queen.push(node.right);
+    const level = 0;
+    let queen = [[root, level]];
+    var search = function() {
+        while (queen.length) {
+            const task = queen.shift();
+            const node = task[0];
+            const level = task[1];
+            if (!node) return;
+            if (queen[0] && queen[0][1] === level) {
+                node.next = queen[0][0];
+            } 
+            if (node.left) queen.push([node.left, level + 1]);
+            if (node.right) queen.push([node.right, level + 1]);
+        }
     }
 
-    search(root);
+    search();
+    return root;
 };
 
