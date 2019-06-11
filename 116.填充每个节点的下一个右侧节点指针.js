@@ -65,8 +65,8 @@ function populateLevel(level) {
         return;
     }
     level.left.next = level.right;
-    if (level.next != null) {
-        level.right.next = level.next.left;
+    if (level.next != null && level.right) {
+        level.right.next = level.next.left || level.next.right;
     }
     populateLevel(level.next)
 }
