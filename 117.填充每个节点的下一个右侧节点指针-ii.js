@@ -17,35 +17,34 @@
  * @return {Node}
  */
 var connect = function(root) {
-    recur(root);
+    populateLevel(root);
     return root;
 };
 
-function recur (level) {
-    
-    // This is a left
-    if (level === null || level.left === null) {
-        return;
-    }
-    // Populate the next edges at the children
-    // of the current level
-    populateLevel(level);
-    
-    
-    // This level is done, so move on to the next one
-    recur(level.left)
-    
-    
-}
-
 function populateLevel(level) {
-    if (level === null) {
+    if (!level) {
         return;
     }
-    level.left.next = level.right;
-    if (level.next != null) {
-        level.right.next = level.next.left;
+
+    let t = level.next;
+    while (t) {
+        if (t.left) {
+            t = t.left;
+            break;
+        }
+        if (t.right) {
+            t = t.right;
+            break;
+        }
+        t = t.next;
     }
-    populateLevel(level.next)
+    if (level.left) {
+        level.left.next = level.right || t;
+    }
+    if (level.right) {
+        level.right.next = t;
+    }
+    populateLevel(level.right);
+    populateLevel(level.left);
 }
 
