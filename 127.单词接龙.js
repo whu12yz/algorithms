@@ -10,6 +10,14 @@
  * @return {number}
  */
 var ladderLength = function(beginWord, endWord, wordList) {
-    
+    let res = 0;
+    let stack = beginWord;
+    while (stack) {
+        let word = stack.pop();
+        for(let i of 'abcdefghijklmnopqrstuvwxyz') {
+
+        }
+        
+    }
 };
 
