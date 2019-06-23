@@ -15,6 +15,6 @@
  * @return {Node}
  */
 var cloneGraph = function(node) {
-    
+    return JSON.parse(JSON.stringify(node));
 };
 
