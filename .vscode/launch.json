@@ -4,6 +4,7 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         
 
 
@@ -11,7 +12,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/131.分割回文串.js"
+            "program": "${workspaceFolder}/134.加油站.js"
         }
     ]
 }
