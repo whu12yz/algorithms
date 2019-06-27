@@ -7,6 +7,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+// 位运算，状态机
 var singleNumber = function(nums) {
     
 };
