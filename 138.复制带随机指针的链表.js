@@ -15,7 +15,16 @@
  * @param {Node} head
  * @return {Node}
  */
-var copyRandomList = function(head) {
+var copyRandomList = function(head, result = new WeakMap()) {
+    if (!head) return null;
+    if (result.has(head)) {
+        return result.get(head);
+    }
+    var a = new Node(head.val);
+    result.set(head, a)
+    a.next = copyRandomList(head.next, result);
+    a.random = copyRandomList(head.random, result);
+    return a;
     
 };
 
