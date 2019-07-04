@@ -30,3 +30,5 @@ var detectCycle = function(head) {
 
 };
 
+// 快慢指针可实现不使用额外空间
+
