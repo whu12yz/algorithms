@@ -15,29 +15,30 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 // 递归法
-// function reverseNode(head) {
-//     if (head === null || head.next === null) {
-//         return head;
-//     }
-//     const newHead = reverseNode(head.next);
-//     head.next.next = head;
-//     return newHead;
-// }
-
-// 迭代法 (两个指针 head和newHead)
 function reverseNode(head) {
     if (head === null || head.next === null) {
         return head;
     }
-    let newHead = null;
-    while(head) {
-        const tmp = head.next;
-        head.next = newHead;
-        newHead = head;
-        head = tmp;
-    }
+    const newHead = reverseNode(head.next);
+    head.next.next = head;
+    head.next = null;
     return newHead;
 }
+
+// 迭代法 (两个指针 head和newHead)
+// function reverseNode(head) {
+//     if (head === null || head.next === null) {
+//         return head;
+//     }
+//     let newHead = null;
+//     while(head) {
+//         const tmp = head.next;
+//         head.next = newHead;
+//         newHead = head;
+//         head = tmp;
+//     }
+//     return newHead;
+// }
 
 function conbine(list, reversedList) {
     let virtualList = list;
@@ -75,10 +76,11 @@ var reorderList = function(head) {
 //     this.next = null;
 // }
 
-// var head = new ListNode(1);
-// head.next = new ListNode(2);
-// head.next.next = new ListNode(3);
-// head.next.next.next = new ListNode(4);
-// head.next.next.next.next = new ListNode(5);
+var head = new ListNode(1);
+head.next = new ListNode(2);
+head.next.next = new ListNode(3);
+head.next.next.next = new ListNode(4);
+head.next.next.next.next = new ListNode(5);
+reverseNode(head);
 
 // reorderList(head);
