@@ -29,3 +29,20 @@ var preorderTraversal = function(root) {
     
 };
 
+// 迭代法
+var preorderTraversal = function(root) {
+    var stack = [];
+    var result = [];
+    while(root || stack.length) {
+        while(root !== null) {
+            result.push(root.val);
+            stack.push(root);
+            root = root.left;
+        }
+        if (stack.length) {
+            root = stack.pop().right;
+        }
+    }
+    return result;
+}
+
