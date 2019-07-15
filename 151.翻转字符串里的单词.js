@@ -8,6 +8,7 @@
  * @return {string}
  */
 var reverseWords = function(s) {
-    
+    const res = s.split(/\s+/).filter(item => item !== '');
+    return res.reverse().join(' ');
 };
 
