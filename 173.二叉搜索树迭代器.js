@@ -13,8 +13,27 @@
 /**
  * @param {TreeNode} root
  */
+function isNumber(num) {
+    return typeof num === 'number';
+}
+
 var BSTIterator = function(root) {
-    
+    // 中序遍历二叉搜索树
+    this.current = -1;
+    this.result = [];
+    const inorder = function(root, result) {
+        if (root === null) return;
+        
+        if (root.left) {
+            inorder(root.left, result);
+        }
+
+        result.push(root.val);
+        if (root.right) {
+            inorder(root.right, result);
+        }
+    }
+    inorder(root, this.result);
 };
 
 /**
@@ -22,7 +41,8 @@ var BSTIterator = function(root) {
  * @return {number}
  */
 BSTIterator.prototype.next = function() {
-    
+    this.current ++;
+    return this.result[this.current];
 };
 
 /**
@@ -30,7 +50,7 @@ BSTIterator.prototype.next = function() {
  * @return {boolean}
  */
 BSTIterator.prototype.hasNext = function() {
-    
+    return  isNumber(this.result[this.current + 1]);
 };
 
 /** 
