@@ -8,6 +8,12 @@
  * @return {number}
  */
 var numIslands = function(grid) {
-    
+    grid.forEach((value, i) => {
+        value.forEach((value, j) => {
+            if (value === 1) {
+                grid[i][j]
+            }
+        })
+    })
 };
 
