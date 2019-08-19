@@ -16,7 +16,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/200.岛屿的个数.js"
+            "program": "${workspaceFolder}/216.组合总和-iii.js"
         }
     ]
 }
