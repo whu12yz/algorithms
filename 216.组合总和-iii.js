@@ -11,32 +11,44 @@
 var combinationSum3 = function(k, n) {
     const temp = [];
     const result = [];
-    let tempVal = 0;
-    let iMap = new Array(k).fill(1);
-    
-    while (temp.length < k) {
-        const newVal = temp[temp.length - 1] ? temp[temp.length - 1] + iMap[temp.length] : iMap[temp.length];
-        // 结束条件
-        if (newVal > 9) {
-            if (temp.length === 0) break;
-            temp.pop();
-            iMap[temp.length] ++;
-            tempVal -= newVal;
-            continue;
-        }
-        temp.push(newVal);
-        tempVal += newVal;
+    recall(result, temp, n, k, 1);
 
-        if (temp.length === k) {
-            if (tempVal === n) {
-                result.push([].concat(temp));
-            }
-            iMap[temp.length - 1] ++;
-            tempVal -= newVal;
+    function recall(result, temp, target, k, j) {
+        if (target === 0 && temp.length === k) {
+            result.push([].concat(temp));
+        }
+        for (let i = j; target >= i && temp.length < k && i <= 9; i ++) {
+            temp.push(i);
+            recall(result, temp, target - i, k, i + 1);
             temp.pop();
         }
     }
+
     return result;
+    
+    // while (temp.length < k) {
+    //     const newVal = temp[temp.length - 1] ? temp[temp.length - 1] + iMap[temp.length] : iMap[temp.length];
+    //     // 结束条件
+    //     if (newVal > 9) {
+    //         if (temp.length === 0) break;
+    //         temp.pop();
+    //         iMap[temp.length] ++;
+    //         tempVal -= newVal;
+    //         continue;
+    //     }
+    //     temp.push(newVal);
+    //     tempVal += newVal;
+
+    //     if (temp.length === k) {
+    //         if (tempVal === n) {
+    //             result.push([].concat(temp));
+    //         }
+    //         iMap[temp.length - 1] ++;
+    //         tempVal -= newVal;
+    //         temp.pop();
+    //     }
+    // }
+    // return result;
 };
-combinationSum3(3, 7)
+// combinationSum3(3, 7)
 
