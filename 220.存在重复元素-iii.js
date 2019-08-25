@@ -10,6 +10,9 @@
  * @return {boolean}
  */
 var containsNearbyAlmostDuplicate = function(nums, k, t) {
-    
+    for (let i = 0; i < nums.length; i ++) {
+        let end = i + k;
+        
+    }
 };
 
