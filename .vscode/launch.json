@@ -16,7 +16,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/216.组合总和-iii.js"
+            "program": "${workspaceFolder}/220.存在重复元素-iii.js"
         }
     ]
 }
