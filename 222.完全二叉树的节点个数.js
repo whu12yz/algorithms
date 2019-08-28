@@ -14,7 +14,18 @@
  * @param {TreeNode} root
  * @return {number}
  */
+// dfs遍历二叉树
 var countNodes = function(root) {
-    
+    let count = 0;
+    function search(node) {
+        if (!node) return;
+
+        count ++;
+
+        if (node.left) search(node.left);
+        if (node.right) search(node.right);
+    }
+    search(root);
+    return count;
 };
 
