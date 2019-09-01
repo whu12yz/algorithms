@@ -15,6 +15,12 @@
  * @return {number}
  */
 var computeArea = function(A, B, C, D, E, F, G, H) {
-    
+    const rect1 = (D - B) * (C - A);
+    const rect2 = (H - F) * (G - E);
+    const overlap = (Math.min(G, C) - Math.max(E, A)) * (Math.min(H, D) - Math.max(B, F))
+    if ((Math.min(G, C) - Math.max(E, A) > 0) && overlap > 0) {
+        return rect1 + rect2 - overlap;
+    }
+    return rect1 + rect2;
 };
 
