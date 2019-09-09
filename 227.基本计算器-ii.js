@@ -48,7 +48,11 @@ var calculate = function(s) {
             stack1.push(cal(s[i], left, s[i+1]));
             i ++;
         } else {
-            stack1.push(s[i]);
+            if (isMultiplyDivide(s[i - 1]) || isPlusAddSub(s[i - 1])) {
+                stack1.push(s[i]);
+            } else {
+                stack1[stack1.length - 1] += s[i - 1];
+            }
         }
     }
     const stack2 = [];
