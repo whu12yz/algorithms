@@ -15,7 +15,15 @@
  * @param {number} k
  * @return {number}
  */
+// 先序遍历，取第k个值
+var search = function(root, list = []) {
+    root.left && search(root.left, list);
+    list.push(root.val);
+    root.right && search(root.right, list);
+    return list;
+}
 var kthSmallest = function(root, k) {
-    
+    const list = search(root);
+    return list[k - 1];
 };
 
