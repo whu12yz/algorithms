@@ -22,6 +22,13 @@ function isUgly(num) {
  * @return {number}
  */
 var nthUglyNumber = function(n) {
-    
+    for (let i = 1;; i ++) {
+        if (isUgly(i)) {
+            n --;
+        }
+        if (n === 0) {
+            return i;
+        }
+    }
 };
 
