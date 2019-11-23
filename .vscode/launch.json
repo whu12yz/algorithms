@@ -16,7 +16,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/220.存在重复元素-iii.js"
+            "program": "${workspaceFolder}/450.删除二叉搜索树中的节点.js"
         }
     ]
 }
