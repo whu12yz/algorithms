@@ -16,7 +16,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/450.删除二叉搜索树中的节点.js"
+            "program": "${workspaceFolder}/456.132-模式.js"
         }
     ]
 }
