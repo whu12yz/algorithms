@@ -9,6 +9,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
+// 递归加回溯
 var find132pattern = function(nums) {
     let list = [];
     let has132 = false;
@@ -40,6 +41,9 @@ var find132pattern = function(nums) {
     return has132;
 };
 
-find132pattern([1,0,1,-4,-3])
+// 单调栈
+var find132pattern = function(nums) {
+    return 
+}
 // @lc code=end
 
