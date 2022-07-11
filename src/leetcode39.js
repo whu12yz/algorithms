@@ -13,7 +13,7 @@ var combinationSum = function(candidates, target) {
 
 function recall(res, tmp, target, candidates, j) {
     if (target === 0) {
-        res.push(tmp);
+        res.push([].concat(tmp));
     }
     for (let i = j; i < candidates.length && target >= candidates[i]; i++) {
         tmp.push(candidates[i]);
@@ -23,5 +23,5 @@ function recall(res, tmp, target, candidates, j) {
     }
 }
 
-const a = combinationSum([2,3,5], 7);
+const a = combinationSum([2,3,5], 8);
 console.log(a);
