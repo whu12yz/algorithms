@@ -24,39 +24,52 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-function TreeNode(val) {
-    this.val = val;
-    this.left = this.right = null;
-}
-// 递归解法
-var inorderTraversal = function(root) {
-    const result = [];
-    inorder(root, result);
-    function inorder(root, res) {
-        if (!root) return;
-        if (root.left) {
-            inorder(root.left, res);
-        }
-        res.push(root.val);
-        if (root.right) {
-            inorder(root.right, res);
-        }
-    }
-    return result
-};
+// function TreeNode(val) {
+//     this.val = val;
+//     this.left = this.right = null;
+// }
+// // 递归解法
+// var inorderTraversal = function(root) {
+//     const result = [];
+//     inorder(root, result);
+//     function inorder(root, res) {
+//         if (!root) return;
+//         if (root.left) {
+//             inorder(root.left, res);
+//         }
+//         res.push(root.val);
+//         if (root.right) {
+//             inorder(root.right, res);
+//         }
+//     }
+//     return result
+// };
 
-// 迭代解法，使用栈
-var inorderTraversal = function (root) {
-    const stack = [];
+// // 迭代解法，使用栈
+// var inorderTraversal = function (root) {
+//     const stack = [];
+//     const res = [];
+//     while(root || stack.length) {
+//         while (root) {
+//             stack.push(root);
+//             root = root.left;
+//         }
+//         root = stack.pop();
+//         res.push(root.val);
+//         root = root.right;
+//     }
+//     return res;
+// }
+function inorderT(root){
     const res = [];
-    while(root || stack.length) {
-        while (root) {
-            stack.push(root);
-            root = root.left;
+    const inorder = (root)=>{
+        if(!root){
+            return;
         }
-        root = stack.pop();
+        inorder(root.left);
         res.push(root.val);
-        root = root.right;
-    }
+        inorder(root.right);
+    } 
+    inorder(root);
     return res;
 }
