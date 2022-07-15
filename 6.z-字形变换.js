@@ -14,12 +14,11 @@ var convert = function(s, numRows) {
 
     if (numRows === 1) return s;
 
-    const matrix = Array(numRows).fill(0).map(() => Array(s.length).fill(0));
+    const matrix = Array(numRows).fill('');
     let x = 0;
-    let y = 0;
     let direction = 'bottom'; // 允许bottom及rightTop
     for (let i = 0; i< s.length; i++) {
-        matrix[x][y] = s[i];
+        matrix[x] += s[i];
         // 触顶改变方向
         if (x === numRows - 1) {
             direction = 'rightTop';
@@ -32,19 +31,19 @@ var convert = function(s, numRows) {
             x ++;
         }
         if (direction === 'rightTop') {
-            y ++;
+            // y ++;
             x --;
         }
     }
 
     // 提取字符串
-    let str = ''; 
-    for (let m = 0; m < matrix.length; m++) {
-        for (let n = 0; n < matrix[0].length; n++) {
-            if (matrix[m][n]) str += matrix[m][n];
-        }
-    }
-    return str;
+    // let str = ''; 
+    // for (let m = 0; m < matrix.length; m++) {
+    //     for (let n = 0; n < matrix[0].length; n++) {
+    //         if (matrix[m][n]) str += matrix[m][n];
+    //     }
+    // }
+    return matrix.join('');
 
 };
 
