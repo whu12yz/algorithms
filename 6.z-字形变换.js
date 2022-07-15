@@ -10,39 +10,32 @@
  * @param {number} numRows
  * @return {string}
  */
+// 二维矩阵解法, 简化矩阵，节省空间
 var convert = function(s, numRows) {
-
     if (numRows === 1) return s;
 
+    // 简化矩阵，节省空间
     const matrix = Array(numRows).fill('');
-    let x = 0;
+    let y = 0;
     let direction = 'bottom'; // 允许bottom及rightTop
     for (let i = 0; i< s.length; i++) {
-        matrix[x] += s[i];
-        // 触顶改变方向
-        if (x === numRows - 1) {
+        matrix[y] += s[i];
+        // 触顶底改变方向
+        if (y === numRows - 1) {
             direction = 'rightTop';
         }
-        if (x === 0) {
+        if (y === 0) {
             direction = 'bottom';
         }
         // 根据方向改值
         if (direction === 'bottom') {
-            x ++;
+            y ++;
         }
         if (direction === 'rightTop') {
-            // y ++;
-            x --;
+            y --;
         }
     }
 
-    // 提取字符串
-    // let str = ''; 
-    // for (let m = 0; m < matrix.length; m++) {
-    //     for (let n = 0; n < matrix[0].length; n++) {
-    //         if (matrix[m][n]) str += matrix[m][n];
-    //     }
-    // }
     return matrix.join('');
 
 };
