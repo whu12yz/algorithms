@@ -44,7 +44,7 @@ var reverse = function(x) {
     while(x !== 0) {
         const digit = x % 10;
         x = Math.trunc(x / 10);
-        if (res < Math.pow(-2, 31) / 10 || res > (Math.pow(2, 31) - 1) / 10) {
+        if ((res < Math.pow(-2, 31) / 10) || (res > (Math.pow(2, 31) - 1) / 10)) {
             return 0;
         }
         res = res * 10 + digit;
