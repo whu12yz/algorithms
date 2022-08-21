@@ -17,17 +17,34 @@
 // var inorderTraversal = function(root) {
     
 // };
-function inorderTraversal(root){
+// function inorderTraversal(root){
+//   const res = [];
+//   const inorder = (root)=>{
+//       if(!root){
+//           return;
+//       }
+//       inorder(root.left);
+//       res.push(root.val);
+//       inorder(root.right);
+//   } 
+//   inorder(root);
+//   return res;
+// }
+
+function inorderTraversal(root) {
+  const stack = [];
   const res = [];
-  const inorder = (root)=>{
-      if(!root){
-          return;
-      }
-      inorder(root.left);
-      res.push(root.val);
-      inorder(root.right);
-  } 
-  inorder(root);
+  while (root || stack.length) {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    if (stack.length) {
+      const cur = stack.pop();
+      res.push(cur.val);
+      root = cur.right;
+    }
+  }
   return res;
 }
 
