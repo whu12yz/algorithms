@@ -31,20 +31,22 @@
 //   return res;
 // }
 
+// 迭代法
 function inorderTraversal(root) {
   const stack = [];
   const res = [];
-  while (root || stack.length) {
-    while (root) {
+  while(root || stack.length) {
+    while (root !== null) {
       stack.push(root);
       root = root.left;
     }
-    if (stack.length) {
-      const cur = stack.pop();
-      res.push(cur.val);
-      root = cur.right;
+    if(stack.length) {
+      const current = stack.pop();
+      res.push(current.val);
+      root = current.right;
     }
   }
   return res;
+
 }
 

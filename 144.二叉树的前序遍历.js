@@ -19,9 +19,8 @@ var preorderTraversal = function(root) {
         if (!node) return [];
 
         result.push(node.val);
-
-        if (node.left) search(node.left, result);
-        if (node.right) search(node.right, result);
+        search(node.left, result);
+        search(node.right, result);
 
         return result;
     }
@@ -30,19 +29,19 @@ var preorderTraversal = function(root) {
 };
 
 // 迭代法
-var preorderTraversal = function(root) {
-    var stack = [];
-    var result = [];
-    while(root || stack.length) {
-        while(root !== null) {
-            result.push(root.val);
-            stack.push(root);
-            root = root.left;
-        }
-        if (stack.length) {
-            root = stack.pop().right;
-        }
-    }
-    return result;
-}
+// var preorderTraversal = function(root) {
+//     var stack = [];
+//     var result = [];
+//     while(root || stack.length) {
+//         while(root !== null) {
+//             result.push(root.val);
+//             stack.push(root);
+//             root = root.left;
+//         }
+//         if (stack.length) {
+//             root = stack.pop().right;
+//         }
+//     }
+//     return result;
+// }
 
