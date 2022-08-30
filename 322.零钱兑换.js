@@ -12,7 +12,6 @@
  */
 var coinChange = function(coins, amount) {
 
-
     const dp = Array.from({length: amount + 1}).fill(amount + 1);
     dp[0] = 0;
 
