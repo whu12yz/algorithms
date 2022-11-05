@@ -18,15 +18,11 @@ var generateParenthesis = function(n) {
     function backtracking(str, left, right) {
         if (str.length === n * 2) res.push(str);
         if (left < n) {
-            str += '(';
-            backtracking(str, left + 1, right );
-            str = str.slice(0, -1);
+            backtracking(str + '(', left + 1, right );
 
         }
         if (right < left) {
-            str += ')';
-            backtracking(str, left, right + 1);
-            str = str.slice(0, -1);
+            backtracking(str + ')', left, right + 1);
         }
     }
 
