@@ -3,6 +3,7 @@
  * @param {number} n
  * @return {number}
  */
+let count = 1;
 var myPow = function(x, n) {
     let res = 1;
     let needReciprocal;
@@ -14,11 +15,15 @@ var myPow = function(x, n) {
     if (needReciprocal) {
         res = 1 / res;
     }
+    console.log(count);
+    console.log(res);
     return res;
 };
 
 
+
 function fastPow(x,n){
+    count ++;
     if(n == 0){
         return 1;
     }
@@ -31,3 +36,4 @@ function fastPow(x,n){
     }
 }
 
+myPow(1.2, 20000)
