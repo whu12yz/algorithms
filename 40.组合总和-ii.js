@@ -21,9 +21,7 @@ var combinationSum2 = function(candidates, target) {
         if (target === 0) res.push([].concat(tmp));
         for (let i = 0; i < candidates.length && target >= candidates[i];  i ++) {
             if (candidates[i] === candidates[i - 1]) continue;
-            tmp.push(candidates[i]);
-            backtracking(res ,tmp, candidates.slice(i + 1), target - candidates[i]);
-            tmp.pop();
+            backtracking(res ,tmp.concat(candidates[i]), candidates.slice(i + 1), target - candidates[i]);
         }
     }
 

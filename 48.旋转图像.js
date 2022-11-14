@@ -20,7 +20,7 @@ var rotate = function(matrix) {
         }
     }
 
-    // 水平翻转
+    // 垂直翻转
     for (let i = 0; i < matrix.length; i ++) {
         for (let j = 0; j < matrix.length / 2; j ++) {
             [matrix[i][j], matrix[i][matrix.length - 1 - j]] = [matrix[i][matrix.length - 1 - j], matrix[i][j]]

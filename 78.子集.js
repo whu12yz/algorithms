@@ -32,7 +32,7 @@
 
 // 不做slice操作，节约空间
 var subsets = function(nums) {
-    nums.sort((a, b) => a - b);
+    // nums.sort((a, b) => a - b);
     const res = [];
     const tmp = [];
 
